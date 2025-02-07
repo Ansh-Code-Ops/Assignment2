@@ -2,9 +2,8 @@
 // Baljindar Singh - 8913973
 // Varad Krishna Sudhakaran - 
 
-
 using NUnit.Framework;
-using Assignment2; 
+using Assignment2;
 
 namespace Assignment2.Tests
 {
@@ -13,6 +12,7 @@ namespace Assignment2.Tests
     {
         #region ProdID Tests
 
+        // Tests if the ProdID property correctly returns the assigned valid value.
         [Test]
         public void TestProdID_ValidValue()
         {
@@ -26,6 +26,7 @@ namespace Assignment2.Tests
             Assert.That(result, Is.EqualTo(123));
         }
 
+        // Tests if the ProdID property correctly handles the minimum valid value.
         [Test]
         public void TestProdID_MinValue()
         {
@@ -39,6 +40,7 @@ namespace Assignment2.Tests
             Assert.That(result, Is.EqualTo(5));
         }
 
+        // Tests if the ProdID property correctly handles the maximum valid value.
         [Test]
         public void TestProdID_MaxValue()
         {
@@ -56,6 +58,7 @@ namespace Assignment2.Tests
 
         #region ProdName Tests
 
+        // Tests if the ProdName property correctly returns the assigned valid value.
         [Test]
         public void TestProdName_ValidValue()
         {
@@ -69,6 +72,7 @@ namespace Assignment2.Tests
             Assert.That(result, Is.EqualTo("Sample Product"));
         }
 
+        // Tests if the ProdName property correctly handles an empty string value.
         [Test]
         public void TestProdName_EmptyValue()
         {
@@ -82,6 +86,7 @@ namespace Assignment2.Tests
             Assert.That(result, Is.EqualTo(""));
         }
 
+        // Tests if the ProdName property correctly handles a null value.
         [Test]
         public void TestProdName_NullValue()
         {
@@ -99,6 +104,7 @@ namespace Assignment2.Tests
 
         #region ItemPrice Tests
 
+        // Tests if the ItemPrice property correctly returns the assigned valid value.
         [Test]
         public void TestItemPrice_ValidValue()
         {
@@ -112,6 +118,7 @@ namespace Assignment2.Tests
             Assert.That(result, Is.EqualTo(100));
         }
 
+        // Tests if the ItemPrice property correctly handles the minimum valid value.
         [Test]
         public void TestItemPrice_MinValue()
         {
@@ -125,6 +132,7 @@ namespace Assignment2.Tests
             Assert.That(result, Is.EqualTo(5));
         }
 
+        // Tests if the ItemPrice property correctly handles the maximum valid value.
         [Test]
         public void TestItemPrice_MaxValue()
         {
@@ -142,6 +150,7 @@ namespace Assignment2.Tests
 
         #region Stock Increase Tests
 
+        // Tests if the IncreaseStock method correctly increases the stock by a valid amount.
         [Test]
         public void TestIncreaseStock_ValidValue()
         {
@@ -155,6 +164,7 @@ namespace Assignment2.Tests
             Assert.That(product.StockAmount, Is.EqualTo(60));
         }
 
+        // Tests if the IncreaseStock method correctly handles increasing stock when the stock is already at a high value.
         [Test]
         public void TestIncreaseStock_MaxValue()
         {
@@ -165,9 +175,10 @@ namespace Assignment2.Tests
             product.IncreaseStock(100);
 
             // Assert
-            Assert.That(product.StockAmount, Is.EqualTo(500100)); 
+            Assert.That(product.StockAmount, Is.EqualTo(500100));
         }
 
+        // Tests if the IncreaseStock method correctly handles increasing stock when the stock is at a low value.
         [Test]
         public void TestIncreaseStock_MinValue()
         {
@@ -185,6 +196,7 @@ namespace Assignment2.Tests
 
         #region Stock Decrease Tests
 
+        // Tests if the DecreaseStock method correctly decreases the stock by a valid amount.
         [Test]
         public void TestDecreaseStock_ValidValue()
         {
@@ -198,6 +210,7 @@ namespace Assignment2.Tests
             Assert.That(product.StockAmount, Is.EqualTo(40));
         }
 
+        // Tests if the DecreaseStock method correctly handles decreasing stock to zero.
         [Test]
         public void TestDecreaseStock_MinValue()
         {
@@ -211,6 +224,7 @@ namespace Assignment2.Tests
             Assert.That(product.StockAmount, Is.EqualTo(0));
         }
 
+        // Tests if the DecreaseStock method throws an exception when attempting to decrease stock below zero.
         [Test]
         public void TestDecreaseStock_TooMuch()
         {
@@ -222,6 +236,7 @@ namespace Assignment2.Tests
             Assert.That(ex.Message, Is.EqualTo("Stock cannot be negative."));
         }
 
+        // Tests if the DecreaseStock method throws an exception when attempting to decrease stock by a very large amount.
         [Test]
         public void TestDecreaseStock_LargeValueBelowZero()
         {
@@ -237,6 +252,7 @@ namespace Assignment2.Tests
 
         #region Stock Edge Case Tests
 
+        // Tests if the IncreaseStock method correctly handles increasing stock by a very large amount.
         [Test]
         public void TestIncreaseStock_LargeAmount()
         {
@@ -250,6 +266,7 @@ namespace Assignment2.Tests
             Assert.That(product.StockAmount, Is.EqualTo(500050));
         }
 
+        // Tests if the DecreaseStock method correctly handles decreasing stock by a very large amount.
         [Test]
         public void TestDecreaseStock_LargeAmount()
         {
