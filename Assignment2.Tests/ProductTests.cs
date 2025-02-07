@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Assignment2; // Include the main project namespace
+using Assignment2; 
 
 namespace Assignment2.Tests
 {
@@ -160,7 +160,7 @@ namespace Assignment2.Tests
             product.IncreaseStock(100);
 
             // Assert
-            Assert.That(product.StockAmount, Is.EqualTo(500100)); // Check that stock doesn't exceed max
+            Assert.That(product.StockAmount, Is.EqualTo(500100)); 
         }
 
         [Test]
@@ -212,11 +212,9 @@ namespace Assignment2.Tests
             // Arrange
             var product = new Product(123, "Sample Product", 100, 50);
 
-            // Act
-            product.DecreaseStock(60); // Attempting to decrease more than the stock
-
-            // Assert
-            Assert.That(product.StockAmount, Is.EqualTo(50)); // Stock should remain at 50 because we can't go negative
+            // Act & Assert
+            var ex = Assert.Throws<InvalidOperationException>(() => product.DecreaseStock(60));
+            Assert.That(ex.Message, Is.EqualTo("Stock cannot be negative."));
         }
 
         [Test]
