@@ -30,15 +30,14 @@
             throw new ArgumentOutOfRangeException("amount", "Amount to decrease must be positive.");
         }
 
-        // Prevent stock from going negative by limiting the decrease to the current stock
         if (amount > StockAmount)
         {
-            // Stock doesn't go below zero, it remains the same
-            StockAmount = 0;
+            
+            throw new InvalidOperationException("Stock cannot be negative.");
         }
-        else
-        {
-            StockAmount -= amount;
-        }
+
+        StockAmount -= amount;
     }
+
+
 }
