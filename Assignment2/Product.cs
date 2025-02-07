@@ -1,4 +1,8 @@
-﻿public class Product
+﻿// Ansh Dave - 8909821
+// Baljindar Singh - 8913973
+// Varad Krishna Sudhakaran - 
+
+public class Product
 {
     public int ProdID { get; set; }
     public string ProdName { get; set; }
